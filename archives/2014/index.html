@@ -60,78 +60,153 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hi" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CodeIgniter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-      <header class="article-header">
-        
-  
-    <a class="article-title" href="/2014/12/22/hi/">hi</a>
-  
-
-      </header>
-    
-    <time class="article-date" datetime="2014-12-21T18:33:19.000Z" itemprop="datePublished">12-22-2014</time>
+    <time class="article-date" datetime="2014-12-22T18:35:35.000Z" itemprop="datePublished">12-23-2014</time>
     
   </div>
   <div class="article-inner">
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="have_a_good_day-">have a good day.</h1>
+        <h1 id="CodeIgniter入门教程">CodeIgniter入门教程</h1>
+<h2 id="框架结构">框架结构</h2>
+<pre><code>从官网下载并解压，得到名为CodeIgniterX.X的文件夹。
+将这个文件夹保存到服务器的根目录（例如/<span class="keyword">var</span>/www/html），
+整个项目的所有工作都在这个文件夹中进行。
+
+或者更确切一点，是在 application 文件夹中。
+</code></pre><h2 id="MVC模式">MVC模式</h2>
+<pre><code>CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
+不太懂也没关系，在使用框架过程中自会慢慢理解。
+</code></pre><ul>
+<li><p>Model（模型）</p>
+<ul>
+<li><p>作用</p>
+<p>负责的工作是<strong>从表单中读取数据，以及与数据库进行交互</strong>（如插入与查询等）。</p>
+</li>
+<li><p>如何使用</p>
+<p>你需要在application/models文件夹下新建一个php文件，<br>在此php文件中创建一个框架内置的CI_Model类的<strong>子类</strong>，作为<br>自己的Model，注意<strong>类名首字母必须大写，且类名须与文件名相同.</strong></p>
+<p>  &lt;?php</p>
+<p>  class Vote_model extends CI_Model {</p>
+<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
+  </span>{    
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;database</span>();
+  }
+
+  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
+  </span>{
+      <span class="comment">// some code...</span>
+  }
+</code></pre><p>  }</p>
+<p>以上就是你要在vote_model.php文件中需要输入的代码。<br>（注意文件名的首字母是不用大写的）</p>
+</li>
+<li><p>构造函数（每次加载时自动运行）</p>
+<p>如果读者没有面向对象程序的概念，这里小小说明一下，这里定义的类相当于<br>一个模板，一个模板的实例化产生一个对象。<strong>construct()是对象被创建<br>时自动执行的函数，称为<strong>构造函数</strong>。在此处不必深究，只需要理解成：<br>每当你定义的Vote_model被控制器加载时，</strong>construct()都会自动执行一次。</p>
+<p>在这里，构造函数的行为是加载数据库。只有加载了数据库之后，才能够对<br>数据库进行查询、插入、删除等行为。</p>
+</li>
+<li><p>主要行为</p>
+<p>你在Vote_model类中编写的函数主要的行为就是从表单中得到数据，将数据<br>与插入数据库中；对数据库进行查询并获取查询结果，等等。</p>
+<p>获取表单数据：</p>
+<p>  $field_value = $this-&gt;input-&gt;post(‘field_name’)；</p>
+<p>与数据库交互使用：</p>
+<p>  //1.向数据库中的People表插入数据。<br>  //  数组的键-值插入数据库中对应的键-值。</p>
+<p>  $data = array(</p>
+<pre><code>  <span class="string">'has_team'</span> =&gt; <span class="keyword">FALSE</span>,
+  <span class="string">'gender'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'gender'</span>),
+  <span class="string">'name'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'name‘)</span>
+</code></pre><p>  );</p>
+<p>  $this-&gt;db-&gt;insert(‘People’, $data);</p>
+<p>  //2.对People表进行一次查询。</p>
+<p>  $query = $this-&gt;db-&gt;get(‘People’);<br>  $result = $query-&gt;result_array();</p>
+<p>详情查看官网文档数据库类。</p>
+</li>
+</ul>
+</li>
+<li><p>Views（视图）</p>
+<ul>
+<li><p>作用</p>
+<p>视图负责展示用户可见的页面，这里是前端与后端共同工作的地方。</p>
+</li>
+<li><p>如何使用</p>
+<p>你需要在views文件夹下新建自己的php文件。<br>注意php文件名必须与控制器中定义的函数名相同。<br>每一个与控制器函数对应的同名php文件都对应一个页面。</p>
+</li>
+<li><p>我该在里面写什么？</p>
+<p>你在视图页面中主要书写的是HTML，JavaScript和PHP代码。</p>
+<p>PHP内容主要是表单、输出一些控制器传回的变量等。</p>
+<p>推荐将多个页面中的共同部分（如页头、导航、页脚）写入一个文件中，<br>如header.php, footer.php等。</p>
+</li>
+<li><p>如何访问</p>
+<p>注意：php文件不能像html文档一样在本地用浏览器打开预览。<br>而必须放在服务器目录下，再通过浏览器进行访问。</p>
+<p>而框架中的视图php文件需要通过控制器才能访问。<br>例如：你在控制器vote.php中定义了一个</p>
+<p>  public function check()<br>  {</p>
+<pre><code>  <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'check'</span>);
+</code></pre><p>  }</p>
+<p>并且在views文件夹中新建了一个check.php文件，</p>
+<p>那么你必须在浏览器中输入<br><code>localhost/CodeIgniterX.X/index.php/vote/check</code><br>才能访问到这个视图页面。</p>
+</li>
+</ul>
+</li>
+<li><p>Controller（控制器）</p>
+<ul>
+<li><p>作用</p>
+<p>整个项目的核心，控制器使用load加载模型和视图，将各部分组合成一个程序。</p>
+</li>
+<li><p>如何使用</p>
+<p>你需要在lovers文件夹下新建php文件，例如vote.php。<br>在此文件中创建框架内置的CI_Controller类的子类。像这样:</p>
+<p>  &lt;?php</p>
+<p>  class Vote extends CI_Controller {</p>
+<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
+  </span>{
+      <span class="keyword">parent</span>::__construct();
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;model</span>(<span class="string">'vote_model'</span>);
+  }
+
+  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span>
+  </span>{
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/header'</span>, <span class="variable">$data</span>);
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'vote/index'</span>, <span class="variable">$data</span>);
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/footer'</span>);
+  }
+
+  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
+  </span>{
+      YOUR CODE...
+  }
+</code></pre><p>  }</p>
+<p>同样，类名首字母需要大写，并且类名与文件名需要保持一致。</p>
+<p>此处的构造函数先调用父类的构造函数，再加载自己定义的Vote_model。<br>不必深究原理，只要照做就行，你还可以根据自己需要，在构造函数中加载<br>更多东西。</p>
+</li>
+<li><p>默认调用的方法    </p>
+<p>此处的 <code>index()</code> 是你定义的控制器的默认方法，也就是说，如果你在<br>浏览器中直接输入localhost/CodeIgniterX.X/index.php/vote,<br>将会执行 <code>index()</code> 函数中定义的操作。</p>
+</li>
+<li><p>在控制器中加载视图文件</p>
+<p>在控制器中加载视图使用 <code>$this-&gt;load-&gt;view(&#39;FILENAME&#39;)</code>,<br>FILENAME的默认路径是application/views文件夹，上面的例子加载<br><code>application/views/templates/header.php</code>和<code>footer.php</code>.<br><code>application/views/vote/index.php</code>.<br>(为方便管理，我将header.php和footer.php保存在一个模板文件夹中，<br>将Vote控制器类中的页面保存在vote文件夹中）</p>
+</li>
+<li><p>我该在里面写些什么？</p>
+<p>在控制器中根据你需要实现的功能定义不同的函数。</p>
+<p>例如：</p>
+<p>1.你想要在网站的首页展示一些静态的内容。那么你只需要在<br>views文件夹中写好index.php，然后在控制器的<code>index()</code>中使用<br><code>$this-&gt;load-&gt;view()</code>加载这些页面。</p>
+<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span>
+  </span>{
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/header'</span>);
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'vote/index'</span>);
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/footer'</span>);
+  }
+</code></pre><p>2.你想要实现报名功能。</p>
+<p>(1)在views中写一个register.php，其中包含一些表单；在models中<br><code>vote_model.php</code>中写一个函数来将表单数据插入数据库。</p>
+<p>(2)设计你的表单验证规则，并在<code>application/config</code>文件夹中新建一个         <code>form_validation.php</code>,来保存你的表单验证规则。</p>
+<p>(3)在控制器类<code>vote.php</code>中的Vote类的构造函数中使用<br><code>$this-&gt;load-&gt;model()</code>来加载你的Model，<br>确保表单发送的数据被你的Model接收;</p>
+<p>(3)在vote.php中定义<code>public function register()</code>,在 register<br>函数中使用 <code>$this-&gt;form_validation-&gt;run()</code>来验证表单，如果表单<br>验证成功，则使用你在Model中定义的函数来将数据插入数据库;如果表单验证<br>失败，使用<code>$this-&gt;load-&gt;view(&#39;register&#39;)</code>重新加载报名页面。</p>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jeffo27.github.io/2014/12/22/hi/" data-id="mtbt0ltsn8zbmnls" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-      <header class="article-header">
-        
-  
-    <a class="article-title" href="/2014/12/22/hello-world/">Hello World</a>
-  
-
-      </header>
-    
-    <time class="article-date" datetime="2014-12-21T18:31:54.000Z" itemprop="datePublished">12-22-2014</time>
-    
-  </div>
-  <div class="article-inner">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://jeffo27.github.io/2014/12/22/hello-world/" data-id="bzq2z2vwnrzsikbq" class="article-share-link">Share</a>
+      <a data-url="http://jeffo27.github.io/2014/12/23/CodeIgniter/" data-id="rpgh45tareadp4qq" class="article-share-link">Share</a>
       
       
     </footer>
