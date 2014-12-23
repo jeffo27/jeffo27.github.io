@@ -63,16 +63,19 @@
     <article id="post-CodeIgniter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-    <time class="article-date" datetime="2014-12-23T07:10:06.000Z" itemprop="datePublished">12-23-2014</time>
+    <time class="article-date" datetime="2014-12-23T07:13:59.000Z" itemprop="datePublished">12-23-2014</time>
     
   </div>
   <div class="article-inner">
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="CodeIgniter入门教程">CodeIgniter入门教程</h1>
+<hr>
 <h2 id="快速上手">快速上手</h2>
+<hr>
 <p>从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。<br>（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。</p>
 <h3 id="配置文件_（application/config下）">配置文件 （application/config下）</h3>
+<hr>
 <ul>
 <li><p>数据库配置 database.php<br>如果你的项目需要用到数据库，请<strong>首先</strong>在database.php文件中设置这三项：</p>
 <pre><code>  $db[<span class="link_label">'default'</span>][<span class="link_reference">'username'</span>] = '';
@@ -83,9 +86,11 @@
 <p>注意，在你的本机与网站服务器之间迁移项目时，确保数据库设置相同，<strong>否则会出现连接错误</strong>。</p>
 <p>如果你的本机与服务器上数据库用户名/密码/database名不同时，建议添加多个group，这样<br>在迁移时只要将开头的<code>$active_group</code>的值切换即可。</p>
 <h3 id="项目结构">项目结构</h3>
+<hr>
 <p>整个网站由三个部分构成，视图（views）-控制器（controller）-模型（models）。</p>
 <p>视图是用户看到的页面，如果页面中有表单输入框，用户可以通过表单提交输入信息。<br>模型部分负责接收表单数据和与数据库进行交互，如查询，插入，删除等。<br>控制器负责连接视图与模型，组装成一个完整可运行的程序。</p>
 <h3 id="你需要做什么">你需要做什么</h3>
+<hr>
 <ul>
 <li><p>明确需求<br>首先明确你的需求。弄清楚你写的程序主要处理的数据是什么，这些数据要如何存在数据库中。<br>例如报名页面，程序主要处理的是每个人的信息，包括名字，性别等等；如果是投票，程序就<br>要处理队伍信息，如队伍名，当前票数，照片等等。弄清楚后就创建数据库以及数据表，定义<br>字段。如果不熟悉SQL语句，操作数据库建议使用phpMyAdmin工具。数据库处理完成之后在<br>database.php中保存你的配置。</p>
 </li>
@@ -103,8 +108,10 @@
 </li>
 </ul>
 <h2 id="MVC模式">MVC模式</h2>
+<hr>
 <p>CodeIgniter采用MVC模式构建项目。上面的举例已经采用了MVC模式。<br>不太懂也没关系，在使用框架过程中自会慢慢理解。</p>
 <h3 id="Model（模型）">Model（模型）</h3>
+<hr>
 <ul>
 <li><p>作用<br>负责的工作是<strong>从表单中读取数据，以及与数据库进行交互</strong>（如插入与查询等）。</p>
 </li>
@@ -152,6 +159,7 @@
     $result = $query-&gt;result_array();</span>
 </code></pre><p>详情查看官网文档数据库类。</p>
 <h3 id="Views（视图）">Views（视图）</h3>
+<hr>
 <ul>
 <li><p>作用<br>视图负责展示用户可见的页面，这里是前端与后端共同工作的地方。</p>
 </li>
@@ -170,6 +178,7 @@
 </code></pre><p>并且在views文件夹中新建了一个check.php文件，</p>
 <p>那么你必须在浏览器中输入<code>localhost/CodeIgniterX.X/index.php/vote/check</code><br>才能访问到这个视图页面。</p>
 <h3 id="Controller（控制器）">Controller（控制器）</h3>
+<hr>
 <ul>
 <li><p>作用<br>整个项目的核心，控制器使用load加载模型和视图，将各部分组合成一个程序。</p>
 </li>
@@ -224,6 +233,7 @@
 <p>(3)在控制器类<code>vote.php</code>中的Vote类的构造函数中使用<br><code>$this-&gt;load-&gt;model()</code>来加载你的Model，<br>确保表单发送的数据被你的Model接收;</p>
 <p>(3)在vote.php中定义<code>public function register()</code>,在 register<br>函数中使用 <code>$this-&gt;form_validation-&gt;run()</code>来验证表单，如果表单<br>验证成功，则使用你在Model中定义的函数来将数据插入数据库;如果表单验证<br>失败，使用<code>$this-&gt;load-&gt;view(&#39;register&#39;)</code>重新加载报名页面。</p>
 <h2 id="其他">其他</h2>
+<hr>
 <ul>
 <li>URL配置 routes.php</li>
 </ul>
@@ -234,6 +244,7 @@
 <p>建议在项目根目录（也就是CodeIgniterX.X文件夹下）创建一个static文件夹来<br>保存你的静态文件，然后在你的视图php文件中使用<code>base_url()</code>函数来动态生成路径。</p>
 <pre><code><span class="xml"><span class="php"><span class="string">    href="</span><span class="preprocessor">&lt;?php</span> <span class="keyword">echo</span> base_url(<span class="string">'static/css/bootstrap.min.css'</span>) <span class="preprocessor">?&gt;</span></span>"</span>
 </code></pre><h2 id="最后">最后</h2>
+<hr>
 <p>使用框架来开发Web程序是一件很轻松的事情，由于本人也是菜鸡，难免各方面的理解会有错误，<br>请各位不吝赐教，多谢。</p>
 
       
