@@ -5,27 +5,48 @@
   
   <title>jeffO&#39;s</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git
-git 是什么工具
-通过 git commit 告诉 Git 你想保存一份项目快照，Git 就会为你的项目中的各个文件的当前状态保存一份记录。之后，绝大部分的 Git 命令都围绕这些记录展开。比如查看它们的区别（diff），提取它们的内容，等等。
-基本使用流程（本地）
-使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 git diff 查看有何改">
+  <meta name="description" content="Pro Git 读书笔记
+
+特性
+
+识别文件状态Git 通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。该字串由 40 个十六进制字符组成。(40个字节就能记录项目文件的状态)
+
+多数操作仅添加数据常用的 Git 操作大多仅仅是把数据添加到数据库。
+
+
+
+本地操作基本流程
+使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 gi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jeffO's">
-<meta property="og:url" content="http://jeffo27.github.io/2014/12/23/Git_Notes/">
+<meta property="og:url" content="http://jeffo27.github.io/2014/12/23/Pro_Git/">
 <meta property="og:site_name" content="jeffO's">
-<meta property="og:description" content="Git
-git 是什么工具
-通过 git commit 告诉 Git 你想保存一份项目快照，Git 就会为你的项目中的各个文件的当前状态保存一份记录。之后，绝大部分的 Git 命令都围绕这些记录展开。比如查看它们的区别（diff），提取它们的内容，等等。
-基本使用流程（本地）
-使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 git diff 查看有何改">
+<meta property="og:description" content="Pro Git 读书笔记
+
+特性
+
+识别文件状态Git 通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。该字串由 40 个十六进制字符组成。(40个字节就能记录项目文件的状态)
+
+多数操作仅添加数据常用的 Git 操作大多仅仅是把数据添加到数据库。
+
+
+
+本地操作基本流程
+使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 gi">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jeffO's">
-<meta name="twitter:description" content="Git
-git 是什么工具
-通过 git commit 告诉 Git 你想保存一份项目快照，Git 就会为你的项目中的各个文件的当前状态保存一份记录。之后，绝大部分的 Git 命令都围绕这些记录展开。比如查看它们的区别（diff），提取它们的内容，等等。
-基本使用流程（本地）
-使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 git diff 查看有何改">
+<meta name="twitter:description" content="Pro Git 读书笔记
+
+特性
+
+识别文件状态Git 通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。该字串由 40 个十六进制字符组成。(40个字节就能记录项目文件的状态)
+
+多数操作仅添加数据常用的 Git 操作大多仅仅是把数据添加到数据库。
+
+
+
+本地操作基本流程
+使用 git add 添加需要追踪的新文件和待提交的更改，然后使用 git status 和 gi">
 
   
     <link rel="alternative" href="/atom.xml" title="jeffO&#39;s" type="application/atom+xml">
@@ -70,21 +91,29 @@ git 是什么工具
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Git_Notes" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Pro_Git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-    <time class="article-date" datetime="2014-12-23T06:30:54.000Z" itemprop="datePublished">12-23-2014</time>
+    <time class="article-date" datetime="2014-12-23T11:34:12.000Z" itemprop="datePublished">12-23-2014</time>
     
   </div>
   <div class="article-inner">
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Git">Git</h1>
-<h2 id="git_是什么工具">git 是什么工具</h2>
-<p>通过 <code>git commit</code> 告诉 Git 你想保存一份项目快照，<br>Git 就会为你的项目中的各个文件的当前状态保存一份记录。<br>之后，绝大部分的 Git 命令都围绕这些记录展开。<br>比如查看它们的区别（diff），提取它们的内容，等等。</p>
-<h2 id="基本使用流程（本地）">基本使用流程（本地）</h2>
+        <h1 id="Pro_Git_读书笔记">Pro Git 读书笔记</h1>
+<hr>
+<h2 id="特性">特性</h2>
+<ul>
+<li><p>识别文件状态<br>Git 通过对文件的内容或目录的结构计算出一个 SHA-1 哈希值，作为指纹字符串。<br>该字串由 40 个十六进制字符组成。<strong>(40个字节就能记录项目文件的状态)</strong></p>
+</li>
+<li><p>多数操作仅添加数据<br>常用的 Git 操作大多仅仅是把数据添加到数据库。</p>
+</li>
+</ul>
+<hr>
+<h2 id="本地操作基本流程">本地操作基本流程</h2>
 <p>使用 git add 添加需要追踪的新文件和待提交的更改，<br>然后使用 git status 和 git diff 查看有何改动，<br>最后用 git commit 将你的快照记录提交。</p>
-<h2 id="详解">详解</h2>
+<hr>
+<h2 id="本地操作详解">本地操作详解</h2>
 <ul>
 <li><p>git add FILE</p>
 <p>  此命令将文件<strong>写入缓存</strong>，这个缓存是<strong>每次 commit 之间的状态</strong>。</p>
@@ -120,49 +149,31 @@ git 是什么工具
 <li><p>git mv</p>
 <p>  重命名。</p>
 </li>
+<li><p>git log</p>
+<p>  查看项目的提交记录。可以使用多种格式来查看，并查看包含特定关键词的提交等等。</p>
+<p>  例如：git log —pretty=format:”%h - %an, %ar : %s”</p>
+</li>
 </ul>
 <p><strong>注意：不要直接在工作目录rm, mv, 使用 git mv和 git rm。</strong></p>
-<h2 id="分支功能">分支功能</h2>
-<p>当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容。<br>也就是说，分支之间以 commit 相区别。 </p>
-<ul>
-<li><p>git branch BRANCH_NAME：创建分支</p>
-</li>
-<li><p>git checkout BRANCH_NAME：切换分支</p>
-</li>
-<li><p>git checkout -b NEW_BRANCH：新建分支并立即切换</p>
-</li>
-<li><p>git branch -d BRANCH_NAME：删除分支</p>
-</li>
-<li><p>git merge BRANCH：将分支合并到主分支</p>
-<p>  git 会比较智能地检查两分支中的文件，并合并修改的内容。</p>
-<p>  <strong>例：</strong></p>
-<p>  在 master 分支中写了代码，commit；创建分支A，写了代码，commit。</p>
-<p>  在 master 分支中执行 merge A，会把分支A与master不同的地方写入master。</p>
-<p>  但如果两个分支对<strong>同一行</strong>代码进行了<strong>不同</strong>的修改，会发生合并冲突。</p>
-<p>  <strong>例：</strong></p>
-<p>  在 master 分支中写了代码，commit；创建分支A，写了代码，commit。<br>  并假设A更改了master中文件FILE的第一行。</p>
-<p>  回到 master 分支，更改第一行，commit。</p>
-<p>  此时执行 merge A，则发生合并冲突。因为两个分支同时修改第一行。</p>
-<p>  需要手动修改来解决冲突，使用 git diff 来查看两个分支的状态。</p>
-</li>
-<li><p>git log</p>
-<p>  查看项目的 commit 历史。</p>
-<p>  使用 —oneline 查看简介输出；使用 —graph 获得更形象的输出。</p>
-<p>  git log BRANCH_1 ^BRANCH_2 用来比较两个分支内容</p>
-</li>
-<li><p>git tag：用来给 commit 打标签，作为（版本）标记。</p>
-</li>
-</ul>
-<h2 id="远程操作">远程操作</h2>
+<hr>
+<h2 id="远程仓库操作基本流程">远程仓库操作基本流程</h2>
 <p>使用 git fetch 更新项目，使用 git push 上传改动。<br>使用 git remote 管理远程仓库。</p>
+<hr>
+<h2 id="远程仓库操作详解">远程仓库操作详解</h2>
 <ul>
 <li><p>git remote -v</p>
 <p>  列出项目的所有远端仓库及其地址。</p>
 </li>
+<li><p>git remote show [alias]</p>
+<p>  显示远程仓库的详细信息。</p>
+</li>
 <li><p>git remote add [alias] [url]</p>
-<p>  如果想要与一个新仓库沟通，最简单的方式通常就是把它添加为一个远端仓库。<br>  此命令将[url]以[alias]的别名添加为本地的远端仓库。</p>
+<p>  此命令将[url]以[alias]的别名添加为本地的远端仓库。</p>
 <p>  此处的 alias 可以随意指定，但常常将其命名为 origin。<br>  原因是 git clone 从远端克隆的仓库默认 [alias]为 origin。</p>
-<p>  删除使用 git remote rm [alias]</p>
+<p>  删除远程仓库使用 git remote rm [alias]</p>
+</li>
+<li><p>git remote rename [name_before] [name_after]</p>
+<p> 重命名远程仓库。</p>
 </li>
 <li><p>git fetch</p>
 <blockquote>
@@ -176,13 +187,39 @@ git 是什么工具
 </li>
 <li><p>git pull = git fetch &amp;&amp; git merge</p>
 </li>
+<li><p>git push [remote-name] [branch-name]</p>
+<p>  向远程仓库推送你的更新。<strong>（注意多用户冲突情况）</strong></p>
+</li>
 </ul>
-<h2 id="未完。">未完。</h2>
+<hr>
+<h2 id="分支">分支</h2>
+<p>强烈建议阅读《Pro Git》的第三章《Git分支》。书中的图示使理解分支概念变得十分简单。</p>
+<ul>
+<li><p>commit对象<br>在 Git 中提交时，会保存一个提交（commit）对象，该对象包含:</p>
+<ul>
+<li>一个指向暂存内容快照的指针;</li>
+<li>本次提交的作者等相关附属信息;</li>
+<li><p>零个或多个指向该提交对象的父对象指针.</p>
+<p>首次提交不包含父对象指针，此后的提交都会包含指向前一次提交的指针。</p>
+</li>
+</ul>
+</li>
+<li><p>分支<br>Git中的分支，其实本质上仅仅是个指向commit对象的可变指针。<br>在工作时，有一个名字为HEAD的特殊指针，标志这当前工作的本地分支。<br>创建新的分支就是创建一个新的指针，使用git checkout切换到新分支时会更改HEAD的值。<br>新建一个分支就是向一个文件写入 41 个字节（外加一个换行符）那么简单，代价非常小。</p>
+</li>
+<li><p>远程分支<br>远程分支（remote branch）是对远程仓库中的分支的索引。它们是一些无法移动的本地分支。<br>在进行网络交互时才会更新。远程分支就像是书签，提醒着你上次连接远程仓库时上面各分支的位置。</p>
+</li>
+<li><p>推送本地分支<br><code>git push origin LOCAL_BRANCH:SERVER_BRANCH</code><br>这条命令的意思是：将本地的LOCAL_BRANCH以SERVER_BRANCH的名字推送到服务器上。</p>
+</li>
+<li><p>多用分支才知道分支的好哇 （●´∀｀）♪</p>
+</li>
+</ul>
+<h2 id="先这样">先这样</h2>
+<p>git的分支功能真是超酷，但是我笔力太渣写不好这部分的笔记，强烈推荐大家读《Pro Git》，<br>作者写的深入浅出，超赞！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jeffo27.github.io/2014/12/23/Git_Notes/" data-id="h8n37e20e2dwhmz8" class="article-share-link">Share</a>
+      <a data-url="http://jeffo27.github.io/2014/12/23/Pro_Git/" data-id="p64fug3ohot9saxe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,15 +228,11 @@ git 是什么工具
     
 <nav id="article-nav">
   
-    <a href="/2014/12/23/CodeIgniter/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2014/12/23/CodeIgniter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
   
 </nav>
 
