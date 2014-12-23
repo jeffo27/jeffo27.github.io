@@ -63,7 +63,7 @@
     <article id="post-CodeIgniter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-    <time class="article-date" datetime="2014-12-23T05:57:56.000Z" itemprop="datePublished">12-23-2014</time>
+    <time class="article-date" datetime="2014-12-23T05:59:40.000Z" itemprop="datePublished">12-23-2014</time>
     
   </div>
   <div class="article-inner">
@@ -73,23 +73,20 @@
 <h2 id="快速上手">快速上手</h2>
 <p>从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。<br>（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。</p>
 <ul>
-<li>配置文件</li>
+<li><p>配置文件 （application/config下）</p>
+<ul>
+<li><p>数据库配置 database.php</p>
+<p>如果你的项目需要用到数据库，请<strong>首先</strong>在database.php文件中设置这三项：</p>
+<pre><code>  $db[<span class="link_label">'default'</span>][<span class="link_reference">'username'</span>] = '';
+  $db[<span class="link_label">'default'</span>][<span class="link_reference">'password'</span>] = '';
+  $db[<span class="link_label">'default'</span>][<span class="link_reference">'database'</span>] = '';
+</code></pre><p>注意，在你的本机与网站服务器之间迁移项目时，确保数据库设置相同，<strong>否则会出现连接错误</strong>。</p>
+<p>如果你的本机与服务器上数据库用户名/密码/database名不同时，建议添加多个group，这样<br>在迁移时只要将开头的<code>$active_group</code>的值切换即可。</p>
+</li>
 </ul>
-<p>存放于apllication/config中。</p>
-<pre><code>* 数据库配置 database.php
-
-如果你的项目需要用到数据库，请<span class="variable">**</span>首先<span class="variable">**</span>在database.php文件中设置这三项：
-
-        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'username'</span>] = <span class="string">''</span>;
-        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'password'</span>] = <span class="string">''</span>;
-        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'database'</span>] = <span class="string">''</span>;
-
-注意，在你的本机与网站服务器之间迁移项目时，确保数据库设置相同，<span class="variable">**</span>否则会出现连接错误<span class="variable">**</span>。
-
-如果你的本机与服务器上数据库用户名/密码/database名不同时，建议添加多个<span class="keyword">group</span>，这样
-在迁移时只要将开头的<span class="string">`$active_group`</span>的值切换即可。
-</code></pre><ul>
-<li>项目结构</li>
+</li>
+<li><p>项目结构</p>
+</li>
 </ul>
 <p>整个网站由三个部分构成，视图（views）-控制器（controller）-模型（models）。</p>
 <p>视图是用户看到的页面，如果页面中有表单输入框，用户可以通过表单提交输入信息。</p>
