@@ -6,29 +6,41 @@
   <title>jeffO&#39;s</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="CodeIgniter入门教程
-简单直接
-从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录（例如/var/www/html），整个项目的所有工作都在这个文件夹中进行。或者更确切一点，是在 application 文件夹中。
-MVC模式
-CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
-不太懂也没关系，在使用框架过程中自会慢慢理">
+快速上手
+从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。
+
+配置文件
+
+存放于apllication/config中。
+* 数据库配置 database.php
+
+如果你的项目需要用到数据库，请**首先**在databa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jeffO's">
 <meta property="og:url" content="http://jeffo27.github.io/2014/12/23/CodeIgniter/">
 <meta property="og:site_name" content="jeffO's">
 <meta property="og:description" content="CodeIgniter入门教程
-简单直接
-从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录（例如/var/www/html），整个项目的所有工作都在这个文件夹中进行。或者更确切一点，是在 application 文件夹中。
-MVC模式
-CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
-不太懂也没关系，在使用框架过程中自会慢慢理">
+快速上手
+从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。
+
+配置文件
+
+存放于apllication/config中。
+* 数据库配置 database.php
+
+如果你的项目需要用到数据库，请**首先**在databa">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jeffO's">
 <meta name="twitter:description" content="CodeIgniter入门教程
-简单直接
-从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录（例如/var/www/html），整个项目的所有工作都在这个文件夹中进行。或者更确切一点，是在 application 文件夹中。
-MVC模式
-CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
-不太懂也没关系，在使用框架过程中自会慢慢理">
+快速上手
+从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。
+
+配置文件
+
+存放于apllication/config中。
+* 数据库配置 database.php
+
+如果你的项目需要用到数据库，请**首先**在databa">
 
   
     <link rel="alternative" href="/atom.xml" title="jeffO&#39;s" type="application/atom+xml">
@@ -76,19 +88,68 @@ CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
         <section id="main"><article id="post-CodeIgniter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-    <time class="article-date" datetime="2014-12-22T18:43:05.000Z" itemprop="datePublished">12-23-2014</time>
+    <time class="article-date" datetime="2014-12-23T05:57:56.000Z" itemprop="datePublished">12-23-2014</time>
     
   </div>
   <div class="article-inner">
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="CodeIgniter入门教程">CodeIgniter入门教程</h1>
-<h2 id="简单直接">简单直接</h2>
-<p>从官网下载并解压，得到名为CodeIgniterX.X的文件夹。<br>将这个文件夹保存到服务器的根目录（例如/var/www/html），<br>整个项目的所有工作都在这个文件夹中进行。<br>或者更确切一点，是在 application 文件夹中。</p>
-<h2 id="MVC模式">MVC模式</h2>
-<pre><code>CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
-不太懂也没关系，在使用框架过程中自会慢慢理解。
+<h2 id="快速上手">快速上手</h2>
+<p>从官网下载并解压，得到名为CodeIgniterX.X的文件夹。将这个文件夹保存到服务器的根目录。<br>（例如/var/www/html），通常情况下，你的工作都在application文件夹中进行。</p>
+<ul>
+<li>配置文件</li>
+</ul>
+<p>存放于apllication/config中。</p>
+<pre><code>* 数据库配置 database.php
+
+如果你的项目需要用到数据库，请<span class="variable">**</span>首先<span class="variable">**</span>在database.php文件中设置这三项：
+
+        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'username'</span>] = <span class="string">''</span>;
+        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'password'</span>] = <span class="string">''</span>;
+        <span class="variable">$db</span>[<span class="string">'default'</span>][<span class="string">'database'</span>] = <span class="string">''</span>;
+
+注意，在你的本机与网站服务器之间迁移项目时，确保数据库设置相同，<span class="variable">**</span>否则会出现连接错误<span class="variable">**</span>。
+
+如果你的本机与服务器上数据库用户名/密码/database名不同时，建议添加多个<span class="keyword">group</span>，这样
+在迁移时只要将开头的<span class="string">`$active_group`</span>的值切换即可。
 </code></pre><ul>
+<li>项目结构</li>
+</ul>
+<p>整个网站由三个部分构成，视图（views）-控制器（controller）-模型（models）。</p>
+<p>视图是用户看到的页面，如果页面中有表单输入框，用户可以通过表单提交输入信息。</p>
+<p>模型部分负责接收表单数据和与数据库进行交互，如查询，插入，删除等。</p>
+<p>控制器负责连接视图与模型，组装成一个完整可运行的程序。</p>
+<ul>
+<li><p>你需要做什么</p>
+<ul>
+<li><p>明确需求</p>
+<p>首先明确你的需求。弄清楚你写的程序主要处理的数据是什么，这些数据要如何存在数据库中。<br>例如报名页面，程序主要处理的是每个人的信息，包括名字，性别等等；如果是投票，程序就<br>要处理队伍信息，如队伍名，当前票数，照片等等。弄清楚后就创建数据库以及数据表，定义<br>字段。如果不熟悉SQL语句，操作数据库建议使用phpMyAdmin工具。数据库处理完成之后在<br>database.php中保存你的配置。</p>
+</li>
+<li><p>编写视图</p>
+<p>要处理的数据定义完成之后，可以先在views文件夹中创建你的视图php文件，在其中撰写<br>表单，这个过程中可以先忽略页面的HTML结构与CSS样式，先写最基本的内容。</p>
+</li>
+<li><p>编写模型</p>
+<p>定义完表单之后，可以在models文件夹中创建你的模型php文件，在其中定义函数来完成<br>与数据库的交互。一般在模型类中使用<code>$this-&gt;input-&gt;post()</code>来获取表单中的<br>数据，使用<code>$this-&gt;db-&gt;insert()</code>来向数据库中插入字段。</p>
+</li>
+<li><p>编写控制器</p>
+<p>在controllers文件夹中创建你的控制器php文件，在你的控制器类中定义不同的函数来<br>完成不同的任务，如定义<code>index()</code>函数展示首页内容；定义<code>register()</code>函数来展示<br>报名页面并对表单进行验证，执行插入数据库操作；定义<code>show()</code>函数展示投票页面并提供<br>投票操作等。</p>
+</li>
+<li><p>在控制器中加载视图与模型</p>
+<p>在你的控制器中使用<code>$this-&gt;load-&gt;view()</code>来加载views文件夹中的<br>视图php文件来进行页面展示，使用<code>$this-&gt;load-&gt;model()</code>来加载models文件夹中的<br>模型php文件，并调用你在模型php文件中定义的函数来完成相关的数据库操作。</p>
+</li>
+<li><p>例子：展示报名信息的页面</p>
+<p>报名信息保存在数据库中，需要在models文件夹中的模型php文件中编写一个函数来进行<br>数据库查询，并返回查询结果。在控制器中加载模型php文件，并调用此函数得到报名信息，<br>保存在一个命名为$data的数组中，并使用<code>$this-&gt;load-&gt;view(&#39;info&#39;,$data)</code><br>将数组传递到info.php视图文件中。在info.php文件中使用这个数组，来输出信息。<br>这就是简单的从后端到前端的数据处理流程。</p>
+</li>
+<li><p>自己确定顺序</p>
+<p>在不同的情景中开发流程不同，请根据自己的需要自行确定开发顺序。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MVC模式">MVC模式</h2>
+<p>CodeIgniter采用MVC模式构建项目。上面的举例已经采用了MVC模式。<br>不太懂也没关系，在使用框架过程中自会慢慢理解。</p>
+<ul>
 <li><p>Model（模型）</p>
 <ul>
 <li><p>作用</p>
@@ -148,11 +209,12 @@ CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
 <li><p>如何访问</p>
 <p>注意：php文件不能像html文档一样在本地用浏览器打开预览。<br>而必须放在服务器目录下，再通过浏览器进行访问。</p>
 <p>而框架中的视图php文件需要通过控制器才能访问。<br>例如：你在控制器vote.php中定义了一个</p>
-<p>  public function check()<br>  {</p>
-<pre><code>  <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'check'</span>);
-</code></pre><p>  }</p>
-<p>并且在views文件夹中新建了一个check.php文件，</p>
-<p>那么你必须在浏览器中输入<br><code>localhost/CodeIgniterX.X/index.php/vote/check</code><br>才能访问到这个视图页面。</p>
+<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">check</span><span class="params">()</span>
+  </span>{
+      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'check'</span>);
+  }
+</code></pre><p>并且在views文件夹中新建了一个check.php文件，</p>
+<p>那么你必须在浏览器中输入<code>localhost/CodeIgniterX.X/index.php/vote/check</code><br>才能访问到这个视图页面。</p>
 </li>
 </ul>
 </li>
@@ -163,27 +225,30 @@ CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
 </li>
 <li><p>如何使用</p>
 <p>你需要在lovers文件夹下新建php文件，例如vote.php。<br>在此文件中创建框架内置的CI_Controller类的子类。像这样:</p>
-<p>  &lt;?php</p>
-<p>  class Vote extends CI_Controller {</p>
-<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
-  </span>{
-      <span class="keyword">parent</span>::__construct();
-      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;model</span>(<span class="string">'vote_model'</span>);
-  }
+<pre><code>  <span class="php"><span class="preprocessor">&lt;?php</span>
 
-  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span>
-  </span>{
-      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/header'</span>, <span class="variable">$data</span>);
-      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'vote/index'</span>, <span class="variable">$data</span>);
-      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/footer'</span>);
-  }
+  <span class="class"><span class="keyword">class</span> <span class="title">Vote</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span> </span>{
 
-  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
-  </span>{
-      YOUR CODE...
-  }
-</code></pre><p>  }</p>
-<p>同样，类名首字母需要大写，并且类名与文件名需要保持一致。</p>
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
+      </span>{
+          <span class="keyword">parent</span>::__construct();
+          <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;model</span>(<span class="string">'vote_model'</span>);
+      }
+
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span>
+      </span>{
+          <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/header'</span>, <span class="variable">$data</span>);
+          <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'vote/index'</span>, <span class="variable">$data</span>);
+          <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;view</span>(<span class="string">'templates/footer'</span>);
+      }
+
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
+      </span>{
+          YOUR CODE...
+      }
+
+  }</span>
+</code></pre><p>同样，类名首字母需要大写，并且类名与文件名需要保持一致。</p>
 <p>此处的构造函数先调用父类的构造函数，再加载自己定义的Vote_model。<br>不必深究原理，只要照做就行，你还可以根据自己需要，在构造函数中加载<br>更多东西。</p>
 </li>
 <li><p>默认调用的方法    </p>
@@ -204,13 +269,26 @@ CodeIgniter采用MVC模式构建项目。MVC的概念可以自行搜索，
   }
 </code></pre><p>2.你想要实现报名功能。</p>
 <p>(1)在views中写一个register.php，其中包含一些表单；在models中<br><code>vote_model.php</code>中写一个函数来将表单数据插入数据库。</p>
-<p>(2)设计你的表单验证规则，并在<code>application/config</code>文件夹中新建一个         <code>form_validation.php</code>,来保存你的表单验证规则。</p>
+<p>(2)设计你的表单验证规则，并在<code>application/config</code>文件夹中新建一个<br><code>form_validation.php</code>来保存你的表单验证规则。</p>
 <p>(3)在控制器类<code>vote.php</code>中的Vote类的构造函数中使用<br><code>$this-&gt;load-&gt;model()</code>来加载你的Model，<br>确保表单发送的数据被你的Model接收;</p>
 <p>(3)在vote.php中定义<code>public function register()</code>,在 register<br>函数中使用 <code>$this-&gt;form_validation-&gt;run()</code>来验证表单，如果表单<br>验证成功，则使用你在Model中定义的函数来将数据插入数据库;如果表单验证<br>失败，使用<code>$this-&gt;load-&gt;view(&#39;register&#39;)</code>重新加载报名页面。</p>
 </li>
 </ul>
 </li>
 </ul>
+<h2 id="其他">其他</h2>
+<ul>
+<li>URL配置 routes.php</li>
+</ul>
+<p>在此文件中可以设置你的默认控制器，并自定义404页面。</p>
+<p>例如你设置默认控制器为vote，那么当你访问<code>http://localhost/CodeIgniter/</code>时，<br>相当于访问了<code>http://localhost/CodeIgniter/index.php/vote</code>页面。</p>
+<ul>
+<li>加载你的静态文件(css, js, img)</li>
+</ul>
+<p>建议在项目根目录（也就是CodeIgniterX.X文件夹下）创建一个static文件夹来<br>保存你的静态文件，然后在你的视图php文件中使用<code>base_url()</code>函数来动态生成路径。</p>
+<pre><code><span class="xml"><span class="php"><span class="string">    href="</span><span class="preprocessor">&lt;?php</span> <span class="keyword">echo</span> base_url(<span class="string">'static/css/bootstrap.min.css'</span>) <span class="preprocessor">?&gt;</span></span>"</span>
+</code></pre><h2 id="最后">最后</h2>
+<p>使用框架来开发Web程序是一件很轻松的事情，由于本人也是菜鸡，难免各方面的理解会有错误，<br>请各位不吝赐教，多谢。</p>
 
       
     </div>
