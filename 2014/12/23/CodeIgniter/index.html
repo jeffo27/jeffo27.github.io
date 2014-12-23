@@ -87,7 +87,7 @@
         <section id="main"><article id="post-CodeIgniter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/23/CodeIgniter/" class="article-date">
-  <time datetime="2014-12-23T05:59:40.000Z" itemprop="datePublished">12月 23 2014</time>
+  <time datetime="2014-12-23T06:08:09.000Z" itemprop="datePublished">12月 23 2014</time>
 </a>
     
   </div>
@@ -156,19 +156,21 @@
 </li>
 <li><p>如何使用</p>
 <p>你需要在application/models文件夹下新建一个php文件，<br>在此php文件中创建一个框架内置的CI_Model类的<strong>子类</strong>，作为<br>自己的Model，注意<strong>类名首字母必须大写，且类名须与文件名相同.</strong></p>
-<p>  &lt;?php</p>
-<p>  class Vote_model extends CI_Model {</p>
-<pre><code>  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
-  </span>{    
-      <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;database</span>();
-  }
+<pre><code>  <span class="php"><span class="preprocessor">&lt;?php</span>
 
-  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
-  </span>{
-      <span class="comment">// some code...</span>
-  }
-</code></pre><p>  }</p>
-<p>以上就是你要在vote_model.php文件中需要输入的代码。<br>（注意文件名的首字母是不用大写的）</p>
+  <span class="class"><span class="keyword">class</span> <span class="title">Vote_model</span> <span class="keyword">extends</span> <span class="title">CI_Model</span> </span>{
+
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span>
+      </span>{    
+          <span class="variable">$this</span><span class="variable">-&gt;load</span><span class="variable">-&gt;database</span>();
+      }
+
+      <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">YOUR_FUNCTION</span><span class="params">()</span>
+      </span>{
+          <span class="comment">// some code...</span>
+      }
+  }</span>
+</code></pre><p>以上就是你要在vote_model.php文件中需要输入的代码。<br>（注意文件名的首字母是不用大写的）</p>
 </li>
 <li><p>构造函数（每次加载时自动运行）</p>
 <p>如果读者没有面向对象程序的概念，这里小小说明一下，这里定义的类相当于<br>一个模板，一个模板的实例化产生一个对象。<strong>construct()是对象被创建<br>时自动执行的函数，称为<strong>构造函数</strong>。在此处不必深究，只需要理解成：<br>每当你定义的Vote_model被控制器加载时，</strong>construct()都会自动执行一次。</p>
@@ -177,18 +179,24 @@
 <li><p>主要行为</p>
 <p>你在Vote_model类中编写的函数主要的行为就是从表单中得到数据，将数据<br>与插入数据库中；对数据库进行查询并获取查询结果，等等。</p>
 <p>获取表单数据：</p>
-<p>  $field_value = $this-&gt;input-&gt;post(‘field_name’)；</p>
-<p>与数据库交互使用：</p>
-<p>  //1.向数据库中的People表插入数据。<br>  //  数组的键-值插入数据库中对应的键-值。</p>
-<p>  $data = array(</p>
-<pre><code>  <span class="string">'has_team'</span> =&gt; <span class="keyword">FALSE</span>,
-  <span class="string">'gender'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'gender'</span>),
-  <span class="string">'name'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'name‘)</span>
-</code></pre><p>  );</p>
-<p>  $this-&gt;db-&gt;insert(‘People’, $data);</p>
-<p>  //2.对People表进行一次查询。</p>
-<p>  $query = $this-&gt;db-&gt;get(‘People’);<br>  $result = $query-&gt;result_array();</p>
-<p>详情查看官网文档数据库类。</p>
+<pre><code>  <span class="variable">$field_value</span> = <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'field_name'</span>)；
+</code></pre><p>与数据库交互使用：</p>
+<pre><code>  <span class="comment">//1.向数据库中的People表插入数据。</span>
+  <span class="comment">//  数组的键-值插入数据库中对应的键-值。</span>
+
+  <span class="variable">$data</span> = <span class="keyword">array</span>(
+      <span class="string">'has_team'</span> =&gt; <span class="keyword">FALSE</span>,
+      <span class="string">'gender'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'gender'</span>),
+      <span class="string">'name'</span> =&gt; <span class="variable">$this</span><span class="variable">-&gt;input</span><span class="variable">-&gt;post</span>(<span class="string">'name‘)
+  );
+
+  $this-&gt;db-&gt;insert('</span>People<span class="string">', $data);
+
+  //2.对People表进行一次查询。
+
+  $query = $this-&gt;db-&gt;get('</span>People<span class="string">');
+  $result = $query-&gt;result_array();</span>
+</code></pre><p>详情查看官网文档数据库类。</p>
 </li>
 </ul>
 </li>
@@ -285,7 +293,7 @@
 <li>加载你的静态文件(css, js, img)</li>
 </ul>
 <p>建议在项目根目录（也就是CodeIgniterX.X文件夹下）创建一个static文件夹来<br>保存你的静态文件，然后在你的视图php文件中使用<code>base_url()</code>函数来动态生成路径。</p>
-<pre><code><span class="xml"><span class="php"><span class="string">    href="</span><span class="preprocessor">&lt;?php</span> <span class="keyword">echo</span> base_url(<span class="string">'static/css/bootstrap.min.css'</span>) <span class="preprocessor">?&gt;</span></span>"</span>
+<pre><code><span class="xml"><span class="php"><span class="string">        href="</span><span class="preprocessor">&lt;?php</span> <span class="keyword">echo</span> base_url(<span class="string">'static/css/bootstrap.min.css'</span>) <span class="preprocessor">?&gt;</span></span>"</span>
 </code></pre><h2 id="最后">最后</h2>
 <p>使用框架来开发Web程序是一件很轻松的事情，由于本人也是菜鸡，难免各方面的理解会有错误，<br>请各位不吝赐教，多谢。</p>
 
