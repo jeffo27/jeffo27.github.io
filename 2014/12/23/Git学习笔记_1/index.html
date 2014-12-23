@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jeffO&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git
+git 是什么工具
+通过 git commit 告诉 Git 你想保存一份项目快照， 
+Git 就会为你的项目中的各个文件的当前状态存一份记录。
+之后，绝大部分的 Git 命令都围绕这些记录展开。
+比如查看它们的区别（diff），提取它们的内容，等等。
+基本使用流程（本地）
+使用 git add 添加需要追踪的新文件和待提交的更改，
+然后使用 git status 和 git diff 查">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jeffO's">
+<meta property="og:url" content="http://jeffo27.github.io/2014/12/23/Git学习笔记_1/">
+<meta property="og:site_name" content="jeffO's">
+<meta property="og:description" content="Git
+git 是什么工具
+通过 git commit 告诉 Git 你想保存一份项目快照， 
+Git 就会为你的项目中的各个文件的当前状态存一份记录。
+之后，绝大部分的 Git 命令都围绕这些记录展开。
+比如查看它们的区别（diff），提取它们的内容，等等。
+基本使用流程（本地）
+使用 git add 添加需要追踪的新文件和待提交的更改，
+然后使用 git status 和 git diff 查">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jeffO's">
+<meta name="twitter:description" content="Git
+git 是什么工具
+通过 git commit 告诉 Git 你想保存一份项目快照， 
+Git 就会为你的项目中的各个文件的当前状态存一份记录。
+之后，绝大部分的 Git 命令都围绕这些记录展开。
+比如查看它们的区别（diff），提取它们的内容，等等。
+基本使用流程（本地）
+使用 git add 添加需要追踪的新文件和待提交的更改，
+然后使用 git status 和 git diff 查">
+
+  
+    <link rel="alternative" href="/atom.xml" title="jeffO&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">jeffO&#39;s</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">And you belong with me, not swallowed in the sea.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-home-icon" class="nav-icon" href="/"></a>
+        
+          <a id="nav-archives-icon" class="nav-icon" href="/archives"></a>
+        
+          <a id="nav-about-icon" class="nav-icon" href="/about"></a>
+        
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Git学习笔记_1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+    <time class="article-date" datetime="2014-12-23T06:17:24.000Z" itemprop="datePublished">12-23-2014</time>
+    
+  </div>
+  <div class="article-inner">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git">Git</h1>
+<h2 id="git_是什么工具">git 是什么工具</h2>
+<pre><code>通过 git <span class="operator"><span class="keyword">commit</span> 告诉 Git 你想保存一份项目快照， 
+Git 就会为你的项目中的各个文件的当前状态存一份记录。
+之后，绝大部分的 Git 命令都围绕这些记录展开。
+比如查看它们的区别（diff），提取它们的内容，等等。</span>
+</code></pre><h2 id="基本使用流程（本地）">基本使用流程（本地）</h2>
+<pre><code>使用 git <span class="built_in">add</span> 添加需要追踪的新文件和待提交的更改，
+然后使用 git status 和 git diff 查看有何改动，
+最后用 git commit 将你的快照记录提交。
+</code></pre><h2 id="详解">详解</h2>
+<ul>
+<li><p>git add FILE</p>
+<p>  此命令将文件<strong>写入缓存</strong>，这个缓存是<strong>每次 commit 之间的状态</strong>。</p>
+</li>
+<li><p>git status</p>
+<p>  此命令查看你的文件在<strong>当前工作目录</strong>与<strong>缓存</strong>的状态。</p>
+<p>  <strong>查看的是每次 git add 之间文件级别的更改。</strong></p>
+<p>  加上参数 -s 查看摘要输出。</p>
+<p>  带 -s 的摘要输出中，第一栏表示<strong>缓存</strong>，第二栏表示<strong>当前目录</strong>。<br>  红色表示检测到未写入缓存的更改，绿色表示已写入缓存的更改。</p>
+<p>  例：如果在上次 add 之后又修改了文件，使用 git status -s，<br>  可以看到修改的文件之前有 M 标记。</p>
+<blockquote>
+<p>这意味着如果我们现在提交快照， 我们记录的将是上次<br>git add 的时候的文件版本，而不是现在在磁盘中的这个。<br>Git 并不认为磁盘中的文件与你想快照的文件必须是一致的，<br>要做到这一点需要使用 git add。</p>
+</blockquote>
+</li>
+<li><p>git diff</p>
+<p>  查看上一次 commit 之后还未 add 的更改。</p>
+<p>  git diff —cached 查看已经 add 的更改。</p>
+<p>  <strong>PS：查看的是每次 git add 之间代码级别的更改。</strong></p>
+<p>  git diff HEAD 查看所有更改，无论是否 add。</p>
+<p>  增加 —stat 参数，比 status 详细，比 diff 简略。<br>  会显示 X files changed, X insertions, X deletions.</p>
+</li>
+<li><p>git commit</p>
+<p>  将 git add 产生的缓存内容记录成一次快照。</p>
+<p>  git commit -a 将所有有记录，并修改过的文件写入快照。<br>  但无法写入新文件。新文件需要 git add 手动添加。</p>
+<p>  git commit —amend 覆盖上一次的提交。<br>  如果对上一次提交如果不满意，修改文件后用这个命令可以覆盖最近一次提交。</p>
+</li>
+<li><p>git reset HEAD — FILENAME</p>
+<p>  如果添加/修改了一个文件，并且 git add 了此文件，但不希望 commit 它。<br>  使用此命令可以取消 git add 操作。</p>
+</li>
+<li><p>git rm</p>
+<p>  git rm 来删除 Git 追踪的文件。它还会删除你的工作目录中的相应文件。</p>
+</li>
+<li><p>git mv</p>
+<p>  重命名。</p>
+</li>
+</ul>
+<p><strong>注意：不要直接在工作目录rm, mv, 使用 git mv和 git rm。</strong></p>
+<h2 id="分支功能">分支功能</h2>
+<pre><code>当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容。
+
+也就是说，分支之间以 <span class="operator"><span class="keyword">commit</span> 相区别。 </span>
+</code></pre><ul>
+<li><p>git branch BRANCH_NAME：创建分支</p>
+</li>
+<li><p>git checkout BRANCH_NAME：切换分支</p>
+</li>
+<li><p>git checkout -b NEW_BRANCH：新建分支并立即切换</p>
+</li>
+<li><p>git branch -d BRANCH_NAME：删除分支</p>
+</li>
+<li><p>git merge BRANCH：将分支合并到主分支</p>
+<p>  git 会比较智能地检查两分支中的文件，并合并修改的内容。</p>
+<p>  <strong>例：</strong></p>
+<p>  在 master 分支中写了代码，commit；创建分支A，写了代码，commit。</p>
+<p>  在 master 分支中执行 merge A，会把分支A与master不同的地方写入master。</p>
+<p>  但如果两个分支对<strong>同一行</strong>代码进行了<strong>不同</strong>的修改，会发生合并冲突。</p>
+<p>  <strong>例：</strong></p>
+<p>  在 master 分支中写了代码，commit；创建分支A，写了代码，commit。<br>  并假设A更改了master中文件FILE的第一行。</p>
+<p>  回到 master 分支，更改第一行，commit。</p>
+<p>  此时执行 merge A，则发生合并冲突。因为两个分支同时修改第一行。</p>
+<p>  需要手动修改来解决冲突，使用 git diff 来查看两个分支的状态。</p>
+</li>
+<li><p>git log</p>
+<p>  查看项目的 commit 历史。</p>
+<p>  使用 —oneline 查看简介输出；使用 —graph 获得更形象的输出。</p>
+<p>  git log BRANCH_1 ^BRANCH_2 用来比较两个分支内容</p>
+</li>
+<li><p>git tag：用来给 commit 打标签，作为（版本）标记。</p>
+</li>
+</ul>
+<h2 id="远程操作">远程操作</h2>
+<pre><code>使用 git fetch 更新项目，使用 git <span class="keyword">push</span> 上传改动。
+使用 git remote 管理远程仓库。
+</code></pre><ul>
+<li><p>git remote -v</p>
+<p>  列出项目的所有远端仓库及其地址。</p>
+</li>
+<li><p>git remote add [alias] [url]</p>
+<p>  如果想要与一个新仓库沟通，最简单的方式通常就是把它添加为一个远端仓库。<br>  此命令将[url]以[alias]的别名添加为本地的远端仓库。</p>
+<p>  此处的 alias 可以随意指定，但常常将其命名为 origin。<br>  原因是 git clone 从远端克隆的仓库默认 [alias]为 origin。</p>
+<p>  删除使用 git remote rm [alias]</p>
+</li>
+<li><p>git fetch</p>
+<blockquote>
+<p>使你与另一仓库同步，为你在同步时的该远端的每一分支提供书签。<br>这些分支被叫做“远端分支”，除了 Git 不允许你检出（切换到该分支）之外，<br>跟本地分支没区别。可以将它们合并到当前分支，与其他分支作比较差异，<br>查看那些分支的历史日志，等等。同步之后你就可以在本地操作这些。</p>
+</blockquote>
+<p>  <strong>PS:貌似可以checkout，但是无法保存修改，需要新建本地分支保存。</strong></p>
+<p>  <strong>例：</strong></p>
+<p>  本地 git init 生成的仓库默认分支为 master。<br>  假设已经 remote add origin git@github.com:XXX/XXX.git.</p>
+<p>  使用 git fetch origin，会从远端仓库下载新的分支，下载来的分支<br>  在本地以 remotes/[alias]/[branch] 的名字作为新分支存在。</p>
+<p>  假设远端仓库只有一个 master 分支。则 fetch 完毕后，使用<br>  git branch -a 可以观察到两个分支：master;remotes/origin/master。</p>
+</li>
+<li><p>git pull = git fetch &amp;&amp; git merge</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jeffo27.github.io/2014/12/23/Git学习笔记_1/" data-id="virwjmm1poo5wsnz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/12/23/CodeIgniter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 jeffo.pyshall<br>
+      <a href="https://github.com/steven5538/hexo-theme-athena" target="_blank">Athena</a> by <a href="http://steven5538.tw" target="_blank">Steven5538</a> | Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
